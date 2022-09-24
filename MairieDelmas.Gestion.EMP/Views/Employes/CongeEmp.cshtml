@@ -1,0 +1,69 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Conge.Conge
+
+@{
+    ViewData["Title"] = "CongeEmp";
+}
+<div class="card-header bg-dark text-uppercase text-white">
+    <h1>CongeEmp</h1>
+</div>
+<h4>Conge</h4>
+<hr />
+ 
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CongeEmp">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="EmployeId" value="@ViewBag.EmployeId" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="TypeConge" class="control-label"></label>
+                <div>
+                    <select asp-for="TypeConge" class="form-select col-md-12">
+                        <option selected>Conge Annuel</option>
+                        <option value="Conge Maternite">Conge Maternite</option>
+                        <option value="Conge Maternite">Conge Maternite</option>
+                        <option value="Conge Maladie">Conge Maladie</option>
+                        <option value="Conge Assistance Parentale">Conge Assistance Parentale</option>
+                    </select>
+                    <span asp-validation-for="TypeConge" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DebutConge" class="control-label"></label>
+                <input asp-for="DebutConge" class="form-control" />
+                <span asp-validation-for="DebutConge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinConge" class="control-label"></label>
+                <input asp-for="FinConge" class="form-control" />
+                <span asp-validation-for="FinConge" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="ReprendreService" class="control-label"></label>
+                <input asp-for="ReprendreService" class="form-control" />
+                <span asp-validation-for="ReprendreService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observation" class="control-label"></label>
+                <textarea asp-for="Observation" class="form-control"></textarea>
+                <span asp-validation-for="Observation" class="text-danger"></span>
+            </div>
+            @*<div>
+                <input type="hidden" asp-for="EmployeId" />
+            </div>*@
+            <div class="form-group">
+                <input asp-controller="Conges" asp-action="Create" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Conges" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

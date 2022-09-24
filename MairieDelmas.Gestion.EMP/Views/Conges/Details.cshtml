@@ -1,0 +1,54 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Conge.Conge
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Conge</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmployeId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TypeConge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TypeConge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DebutConge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DebutConge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FinConge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FinConge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReprendreService)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReprendreService)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Observation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Observation)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CongeId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

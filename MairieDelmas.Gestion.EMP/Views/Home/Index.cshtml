@@ -1,0 +1,115 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Employe.Employe>
+
+@{
+    ViewData["Title"] = "ListerNom";
+}
+
+<div class="card-header bg-dark text-uppercase text-white text-center">
+    <img src="~/MD logo png copy.png" width="100" alt="Alternate Text" />  <h1>    Bienvenue </h1>
+</div>
+<br />
+<div class="row p-2">
+    <div class="col-md-2 bg-white table-bordered">
+        <br />
+        <div>
+            <a asp-controller="Employes" class="text-dark text-center" asp-action="Edit"><img src="~/MD logo png copy.png" width="30" alt="Alternate Text" />Mairie de Delmas</a>
+        </div>
+        <hr />
+        <br />
+
+        <div>
+
+            <a asp-controller="Home" class="text-dark text-center" asp-action="Index"><img src="~/house-fill.svg" class="text-light" width=" 20" alt="Alternate Text" /> Accueil  </a>
+        </div>
+        <br />
+        <div>
+
+            <a asp-controller="Employes" class="text-dark text-center" asp-action="Recherche"><img src="~/person-rolodex.svg" width=" 20" class="text-light" alt="Alternate Text" /> Employes  </a>
+        </div>
+
+        <br />
+        <div>
+            <a asp-controller="Employes" class="text-dark text-center" asp-action="RechercheInfoPersonel"><img src="~/airplane-fill.svg" width=" 20" class="text-light" alt="Alternate Text" />  Conge </a>
+        </div>
+        <br />
+        <div>
+            <a asp-controller="Employes" class="text-dark text-center" asp-action="Delete"><img src="~/envelope-paper-fill.svg" width=" 20" class="text-light" alt="Alternate Text" />  Corespondances</a>
+        </div>
+        <br />
+        <div>
+            <a asp-controller="Employes" class="text-dark text-center" asp-action="Edit"><img src="~/signpost-fill.svg" width=" 20" class="text-light" alt="Alternate Text" /> Doleances  </a>
+        </div>
+        <br />
+
+    </div>
+    <div class="col-md-9 bg-white">
+        <table class="table table-striped ">
+            <thead clas="table-dark ">
+                <tr style="font-size:small" class="text-center">
+
+ 
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prenom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypeContrat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Emploi)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Service)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateEntreaLaMairie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Telephone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                     
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                <tr class="text-center" style="font-size:small">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeContrat)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Emploi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateEntreaLaMairie.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telephone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    
+
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

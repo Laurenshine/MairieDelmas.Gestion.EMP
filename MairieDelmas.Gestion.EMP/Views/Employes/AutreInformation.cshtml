@@ -1,0 +1,169 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Employe.Employe>
+
+@{
+    ViewData["Title"] = "AutreInformation";
+}
+<div class="card-header bg-dark text-uppercase text-white">
+    <img src="~/MD logo png copy.png" width="100" alt="Alternate Text" /> <h1>Autre Information</h1>
+</div>
+
+<div class="d-flex mb-1 ">
+
+    <div class="p-2">
+        <a asp-action="Create"><img style="width:40px" src="~/person-plus.svg" alt="Alternate Text" /> </a>
+    </div>
+</div>
+<div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link " aria-current="page" asp-action="Recherche">Information Personelles </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="RechercheEmployeActif">Informations Complementaires</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" asp-action="">Autres Informations</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="RechercheInfoPersonel">Documents de Dossiers</a>
+        </li>
+    </ul>
+</div>
+<br />
+<div class="row ">
+<div class="col-md-8">
+    <form asp-action="Recherche" method="get">
+        <div class="form-group">
+            <input type="text" name="Recherche" placeholder="Recherche..." />
+            <button type="submit" value="Filter"> <img src="~/search.svg" alt="Alternate Text" /></button>
+        </div>
+    </form>
+</div>
+
+</div>
+<br />  
+<table class="table table-striped ">
+    <thead class="table-dark text-center">
+        <tr style="font-size:small">
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Allergies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maladies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarques)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatederniereVisite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEntreaLaMairie)
+            </th>
+            <th>
+                Nombre Anne
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompteBancaireBNC)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.AutreFormation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EtudeEncour)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="text-center" style="font-size:small">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Allergies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maladies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarques)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatederniereVisite.Date)
+            </td>
+           
+
+            <td>
+
+
+
+                @Html.DisplayFor(modelItem => item.DateEntreaLaMairie.Date)
+
+            </td>
+            <td>
+                @{
+
+                    DateTime dateEntre = item.DateEntreaLaMairie;
+                    int mois = dateEntre.Month;
+                    int anne = dateEntre.Year;
+
+                    DateTime now = DateTime.Today;
+                    int anneDetravail = now.Year - dateEntre.Year;
+                    if (dateEntre > now.AddYears(-anneDetravail))
+                        anneDetravail--;
+
+
+                    @*@ DateTime anne = DateTime.Parse(ani)
+                   jours = ke.Day;
+            mois = ke.Month;
+
+            DateTime now = DateTime.Today;
+            age = now.Year - ke.Year;
+            if (ke > now.AddYears(-age))
+                age--;*@
+                }
+               @anneDetravail
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompteBancaireBNC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutreFormation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtudeEncour)
+            </td>
+
+            <td>
+                <a asp-action="EnregistrerAutreInformation" asp-route-id="@item.EmployeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a>
+                <a asp-action="Details" asp-route-id="@item.EmployeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a>
+                <a asp-action="Delete" asp-route-id="@item.EmployeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

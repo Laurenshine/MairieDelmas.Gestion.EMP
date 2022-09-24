@@ -1,0 +1,245 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Employe.Employe>
+
+@{
+    ViewData["Title"] = "ListerNom";
+}
+<div class="card-header bg-dark text-uppercase text-white">
+    <h1>Index</h1>
+</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table-hover ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeEmp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeContrat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LieudeNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationalite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaysdeNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adresse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SituationFamiliale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePersaCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEnfants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIFCIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emploi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Portable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonneAPrevenir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PortablePersonneAPrevenir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Liens)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarteIdentification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermisConduire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allergies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maladies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarques)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatederniereVisite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEntreaLaMairie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompteBancaireBNC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutreFormation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EtudeEncour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Etat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeEmp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeContrat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LieudeNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationalite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaysdeNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SituationFamiliale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePersaCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEnfants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIFCIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emploi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cadre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Portable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonneAPrevenir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortablePersonneAPrevenir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Liens)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarteIdentification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermisConduire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allergies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maladies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarques)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatederniereVisite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEntreaLaMairie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompteBancaireBNC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutreFormation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtudeEncour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etat)
+            </td>
+            <td>
+                <a  asp-action="Edit" asp-route-id="@item.EmployeId">Edit</a> |
+                <a  asp-action="Details" asp-route-id="@item.EmployeId">Details</a> |
+                <a  asp-action="Delete" asp-route-id="@item.EmployeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

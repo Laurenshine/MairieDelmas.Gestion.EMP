@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Conge.Conge>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card-header bg-dark text-uppercase text-white">
+      <h1>Listes des Conges</h1>
+</div>
+<br />
+
+<table class="table table-striped ">
+    <thead class="table-dark ">
+        <tr style="font-size:small" class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeConge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DebutConge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinConge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReprendreService)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="font-size:small" class="text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeConge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DebutConge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinConge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReprendreService)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observation)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CongeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a>
+                    <a asp-action="Details" asp-route-id="@item.CongeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a>
+                    <a asp-action="Delete" asp-route-id="@item.CongeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

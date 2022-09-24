@@ -1,0 +1,156 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Employe.Employe>
+
+@{
+    ViewData["Title"] = "Recherche";
+}
+
+  
+<div class="card-header bg-dark text-uppercase text-white">
+    <img src="~/MD logo png copy.png" width="100" alt="Alternate Text" />  <h1>Employes Mairie de Delmas</h1>
+</div>
+
+<div class="d-flex mb-1 ">
+     
+    <div class="p-2">
+         <a asp-action="Create"><img style="width:40px" src="~/person-plus.svg" alt="Alternate Text" /> </a>
+    </div>
+</div>
+<div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" asp-action="Recherche">Information Personelles  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">4</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="RechercheEmployeActif">Informations Complementaires <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">4</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="AutreInformation">Autres Informations <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">4</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action=" ">Documents de Dossiers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action=" CongeEmp">Conges</a>
+        </li>
+    </ul>
+</div>
+<br />  
+<div class="row ">
+    <div class="col-md-8">
+        <form asp-action="Recherche" method="get">
+            <div class="form-group">
+                <input type="text" name="Recherche" placeholder="Recherche..." />
+                <button type="submit" value="Filter"> <img src="~/search.svg"  alt="Alternate Text" /></button>
+            </div>
+        </form>
+    </div>
+   
+</div>
+    <br />
+    <div cellspacing="0" cellpadding="0">
+        <table class="table table-striped ">
+            <thead class="table-dark text-center">
+                <tr style="font-size:small">
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypeContrat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prenom)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateNaissance)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LieudeNaissance)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PaysdeNaissance)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nationalite)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SituationFamiliale)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Adresse)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombrePersaCharge)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreEnfants)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NIFCIN)
+                    </th>
+
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr class="text-center" style="font-size:small">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeContrat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenom)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateNaissance.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LieudeNaissance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaysdeNaissance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nationalite)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SituationFamiliale)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adresse)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombrePersaCharge)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreEnfants)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NIFCIN)
+                    </td>
+
+                    <td>
+
+                        <a asp-action="ModifierInfoPersonnelle" asp-route-id="@item.EmployeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a>
+
+                        <a asp-action="Details" asp-route-id="@item.EmployeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a>
+
+                        <a asp-action="Delete" asp-route-id="@item.EmployeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
+
+                        @*<a asp-action="CongeEmp" asp-route-id="@item.EmployeId"><img class="delete" src="~/airplane-fill.svg" alt="Alternate Text" /></a>*@
+
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+
