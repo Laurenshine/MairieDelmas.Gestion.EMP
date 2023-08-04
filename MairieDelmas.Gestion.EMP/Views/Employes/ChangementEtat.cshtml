@@ -1,0 +1,170 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Employe.Employe
+
+@{
+    ViewData["Title"] = "ChangementEtat";
+}
+
+<div class="  bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Employe</h2>
+</div>
+<div class="container pb-2" >
+    <fieldset class="table-bordered border-primary p-2">
+        <legend class="w-auto text-primary">Changement d'Etat </legend>
+
+        <form asp-action="ChangementEtat">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeId" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CodeEmp" class="control-label"></label>
+                        <input asp-for="CodeEmp"  class="form-control" readonly/>
+                        <span asp-validation-for="CodeEmp" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="TypeContrat" class="control-label"></label>
+                        <input asp-for="TypeContrat" class="form-control" readonly />
+                        <span asp-validation-for="TypeContrat" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Nom" class="control-label"></label>
+                        <input asp-for="Nom" class="form-control" readonly/>
+                        <span asp-validation-for="Nom" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Prenom" class="control-label"></label>
+                        <input asp-for="Prenom" class="form-control" readonly/>
+                        <span asp-validation-for="Prenom" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NIFCIN" class="control-label"></label>
+                        <input asp-for="NIFCIN" class="form-control" readonly/>
+                        <span asp-validation-for="NIFCIN" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Emploi" class="control-label"></label>
+                        <input asp-for="Emploi" class="form-control"readonly />
+                        <span asp-validation-for="Emploi" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Service" class="control-label"></label>
+                        <input asp-for="Service" class="form-control"readonly />
+                        <span asp-validation-for="Service" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DateEntreaLaMairie" class="control-label"></label>
+                        <input asp-for="DateEntreaLaMairie " class="form-control" readonly/>
+                        <span asp-validation-for="DateEntreaLaMairie" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Etat" class="control-label"></label>
+                        <div>
+                            <select asp-for="Etat" class="form-select col-md-12">
+                                <option selected>Actif</option>
+                                <option value="Revoque">Revoque</option>
+                                <option value="En Disponibilite">Mise en Disponibilite</option>
+                                <option value="Demissionner">Demissionner</option>
+                                <option value="Abandon">Abandon</option>
+                                <option value="Decede">Decede</option>
+
+                            </select>
+                            <span asp-validation-for="Etat" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"> <div class="form-group">
+                        <label asp-for="DatechangementEtat" class="control-label"></label>
+                        <input asp-for="DatechangementEtat " type="date" class="form-control"  />
+                        <span asp-validation-for="DatechangementEtat" class="text-danger"></span>
+                    </div>  </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Remarque" class="control-label"></label>
+                        <textarea asp-for="Remarque " class="form-control" rows="5" ></textarea>
+                        <span asp-validation-for="Remarque " class="text-danger"></span>
+                    </div>
+                </div>
+                
+            </div>
+
+            <input asp-for="DateNaissance" type="hidden" />
+            <input asp-for="LieudeNaissance" type="hidden" />
+            <input asp-for="Nationalite" type="hidden" />
+            <input asp-for="PaysdeNaissance" type="hidden" />
+            <input asp-for="Adresse" type="hidden" />
+            <input asp-for="SituationFamiliale" type="hidden" />
+            <input asp-for="NombrePersaCharge" type="hidden" />
+            <input asp-for="NombreEnfants" type="hidden" />
+            <input asp-for="SituationFamiliale" type="hidden" />
+            <input asp-for="NombrePersaCharge" type="hidden" />
+            <input asp-for="NombreEnfants" type="hidden" />
+            <input asp-for="Cadre" type="hidden" />
+            <input asp-for="Telephone" type="hidden" />
+            <input asp-for="Portable " type="hidden" />
+            <input asp-for="Email" type="hidden" />
+            <input asp-for="PersonneAPrevenir" type="hidden" />
+            <input asp-for="PortablePersonneAPrevenir" type="hidden" />
+            <input asp-for="Liens" type="hidden" />
+            <input asp-for="Gs" type="hidden" />
+            <input asp-for="Allergies" type="hidden" />
+            <input asp-for="Maladies" type="hidden" />
+            <input asp-for="Remarques" type="hidden" />
+            <input asp-for="DatederniereVisite" type="hidden" />
+            <input asp-for="CompteBancaireBNC" type="hidden" />
+            <input asp-for="AutreFormation" type="hidden" />
+            <input asp-for="EtudeEncour" type="hidden">
+            <input asp-for="CarteIdentification" type="hidden" />
+            <input asp-for="CV" type="hidden" />
+            <input asp-for="Photo" type="hidden" />
+            <input asp-for="PermisConduire" type="hidden" />
+
+
+            <input asp-for="User" type="hidden" />
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Save" />
+                <a asp-action="ListeEmployeInActif" class="btn btn-outline-primary">Retour</a>
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

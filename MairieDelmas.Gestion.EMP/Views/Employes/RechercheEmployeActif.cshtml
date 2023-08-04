@@ -4,16 +4,11 @@
     ViewData["Title"] = "RechercheEmployeActif";
 }
 
-<div class="card-header bg-dark text-uppercase text-white">
-    <img src="~/MD logo png copy.png" width="100" alt="Alternate Text" />  <h1>Employes Mairie de Delmas</h1>
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Employes Mairie de Delmas</h2>
 </div>
 
-<div class="d-flex mb-1 ">
 
-    <div class="p-2">
-        <a asp-action="Create"><img style="width:40px" src="~/person-plus.svg" alt="Alternate Text" /> </a>
-    </div>
-</div>
 <div>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -26,106 +21,127 @@
             <a class="nav-link" asp-action="AutreInformation">Autres Informations</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link"  asp-action="RechercheInfoPersonel">Documents de Dossiers</a>
+            <a class="nav-link" asp-action="RechercheDocument">Documents de Dossiers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Promotions" asp-action="ListePromotion">Promotion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="ListeEmployeInActif">Changement d'Etat</a>
         </li>
     </ul>
 </div>
-<br />  
-<div class="row ">
-    <div class="col-md-8">
+
+<div class="row  mt-2">
+    <div class="col-md-8 ml-3">
         <form asp-action="RechercheEmployeActif" method="get">
-            <div class="form-group">
-                <input type="text" name="Recherche" placeholder="Recherche..." />
-                <button type="submit" value="Filter"> <img src="~/search.svg" alt="Alternate Text" /></button>
+            <div class="input-group">
+                <input type="text" name="Recherche" class="form-control col-4 pl-4" placeholder="Service , Poste..." />
+                <button type="submit" class="btn btn btn-outline-light border-0 " value="Filter"> <img src="~/search.svg" alt="Alternate Text" /></button>
             </div>
         </form>
     </div>
 
 </div>
-<br />  
-<table class="table table-striped ">
-    <thead class="table-dark text-center">
-        <tr style="font-size:small">
+ 
+<fieldset class="border border-primary pt-2 overflow-auto " style="height:450px">
+    <legend class="w-auto text-primary">  <a asp-action="Create" class="btn btn-outline-light border-0"><img style="width:40px" src="~/person-plus.svg" alt="Alternate Text" /> </a> </legend>
+    <table class="table table-striped  table-sm table-hover">
+        <thead class="table-primary text-center">
+            <tr style="font-size:small">
 
-            <th>
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prenom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Emploi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Service)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telephone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Portable)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PersonneAPrevenir)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PortablePersonneAPrevenir)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Liens)
-            </th>
-            <th> Update</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr class="text-center" style="font-size:small">
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Emploi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Service)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telephone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Portable)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PersonneAPrevenir)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PortablePersonneAPrevenir)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Liens)
+                </th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-center" style="font-size:small">
 
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prenom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Emploi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Service)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telephone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Portable)
-            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Emploi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telephone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Portable)
+                    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PersonneAPrevenir)
-            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PersonneAPrevenir)
+                    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.PortablePersonneAPrevenir)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Liens)
-            </td>
-            <td>
-                <a asp-action="EnregistrerInfoComplementaire" asp-route-id="@item.EmployeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PortablePersonneAPrevenir)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Liens)
+                    </td>
+                    <td>
+                        <a asp-action="EnregistrerInfoComplementaire" asp-route-id="@item.EmployeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a>
 
-                <a asp-action="Details" asp-route-id="@item.EmployeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a>
+                        <a asp-action="CertificatDeTravail" asp-route-id="@item.EmployeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a>
 
-                <a asp-action="Delete" asp-route-id="@item.EmployeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+                        <a asp-action="PromotionEmploye" asp-route-id="@item.EmployeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</fieldset>
+<div class="small ">
+    <nav>
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Promotion.Promotion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" /> <h2 class="d-inline">Employes Mairie de Delmas</</h2>
+</div>
+
+
+ 
+
+<div class="row mt-2 ">
+    <div class="col-md-8 ml-3">
+        <form asp-action="Recherche" method="get">
+            <div class="input-group">
+                <input type="text" name="Recherche" class="form-control col-4 " placeholder="Nom , Prenom, Nif/Cin..." />
+                <button type="submit" class="btn btn-outline-light border-0" value="Filter">
+                    <img src="~/search.svg" alt="Alternate Text" />
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NifCIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AncienPoste)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AncienService)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NouveauPoste)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NouveauService)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePromotion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RemarquePromotion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NifCIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AncienPoste)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AncienService)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NouveauPoste)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NouveauService)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePromotion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RemarquePromotion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PromotionId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PromotionId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PromotionId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

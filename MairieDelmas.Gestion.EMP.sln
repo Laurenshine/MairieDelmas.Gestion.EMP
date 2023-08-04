@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MairieDelmas.Gestion.EMP", "MairieDelmas.Gestion.EMP\MairieDelmas.Gestion.EMP.csproj", "{4DC2BE1E-901D-408C-BD6B-B3A09C7E13DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MairieDelmas.Gestion.EMP", "MairieDelmas.Gestion.EMP\MairieDelmas.Gestion.EMP.csproj", "{4DC2BE1E-901D-408C-BD6B-B3A09C7E13DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{15BA960D-4295-4DF5-9A9B-9A076C7CDC60}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

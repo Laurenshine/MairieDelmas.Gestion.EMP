@@ -1,0 +1,84 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Corespondance.Corespondance
+
+@{
+    ViewData["Title"] = "SuivieCorespondance";
+}
+
+<h1>SuivieCorespondance</h1>
+
+<h4>Corespondance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SuivieCorespondance">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CorespondanceId" />
+            <div class="form-group">
+                <label asp-for="CodeCorespondance" class="control-label"></label>
+                <input asp-for="CodeCorespondance" class="form-control" />
+                <span asp-validation-for="CodeCorespondance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomComplet" class="control-label"></label>
+                <input asp-for="NomComplet" class="form-control" />
+                <span asp-validation-for="NomComplet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institution" class="control-label"></label>
+                <input asp-for="Institution" class="form-control" />
+                <span asp-validation-for="Institution" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Objet" class="control-label"></label>
+                <input asp-for="Objet" class="form-control" />
+                <span asp-validation-for="Objet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telephone" class="control-label"></label>
+                <input asp-for="Telephone" class="form-control" />
+                <span asp-validation-for="Telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Daterecu" class="control-label"></label>
+                <input asp-for="Daterecu" class="form-control" />
+                <span asp-validation-for="Daterecu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User" class="control-label"></label>
+                <input asp-for="User" class="form-control" />
+                <span asp-validation-for="User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Suivi" class="control-label"></label>
+                <input asp-for="Suivi" class="form-control" />
+                <span asp-validation-for="Suivi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarque" class="control-label"></label>
+                <input asp-for="Remarque" class="form-control" />
+                <span asp-validation-for="Remarque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,76 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Doleance.Doleance
+
+@{
+    ViewData["Title"] = "Details";
+  //  Layout = "~/Areas/Identity/Pages/_ViewStart.cshtml";
+}
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" /> <h2 class="d-inline">Doleance</h2>
+</div>
+ 
+<div class="container">
+    <div>
+        <h4>Information de Doleance</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NomComplet)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NomComplet)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Demande)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Demande)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Telephone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Telephone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DateDoloeance)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DateDoloeance)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Service)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Service)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.User)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.User)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Suivi)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Suivi)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Remarque)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Remarque)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.DoleanceId">Edit</a> |
+        <a asp-action="Index"  class="btn btn-outline-primary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Doleance.Doleance>
+
+@{
+    ViewData["Title"] = "RechercheDoloeance";
+}
+
+<div class="  bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" /> <h2 class="d-inline">Doleance</h2>
+</div>
+<div class="d-flex mb-1 ">
+
+    <div class="pl-4 pt-2">
+        <a asp-action="Create" class="btn btn-outline-light border-0"><img style="width:40px" src="~/signpost-fill.svg" alt="Alternate Text" /> </a>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-md-8">
+        <form asp-action="RechercheDoloeance" method="get">
+            <div class="input-group">
+                <input type="text" name="Recherche" class="form-control col-4" placeholder="NomComplet, Tel, Email..." />
+                <button type="submit" class="btn btn-outline-light border-0" value="Filter">
+                    <img src="~/search.svg" alt="Alternate Text" />
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<br />  
+ 
+<table class="table table-striped table-sm  table-hover">
+    <thead class="table-primary">
+        <tr  style="font-size:small " class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.CodeDoleance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomComplet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Demande)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateDoloeance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Suivi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarque)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="font-size:small " class="text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodeDoleance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomComplet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Demande)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDoloeance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Suivi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarque)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DoleanceId"><img src="~/search.svg" alt="Alternate Text" /></a> |
+                    <a asp-action="Details" asp-route-id="@item.DoleanceId"><img src="~/eye.svg" alt="Alternate Text" /></a> |
+                    <a asp-action="Delete" asp-route-id="@item.DoleanceId"><img src="~/trash.svg" alt="Alternate Text" /></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

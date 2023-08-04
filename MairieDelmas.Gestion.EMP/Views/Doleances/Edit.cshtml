@@ -1,0 +1,136 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Doleance.Doleance
+
+@{
+    ViewData["Title"] = "Edit";
+   // Layout = "~/Areas/Identity/Pages/_ViewStart.cshtml";
+}
+ 
+    <div class=" bg-primary text-uppercase text-white shadow">
+        <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" /> <h2 class="d-inline"> Recherche Doleance</h2>
+    </div>
+ 
+  
+    <div class="container pb-2">
+        <fieldset class="table-bordered border-primary p-2">
+            <legend class="w-auto text-primary"> Modifier </legend>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="DoleanceId" />
+                <input type ="hidden" asp-for="CodeDoleance"/>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label asp-for="NomComplet" class="control-label"></label>
+                            <input asp-for="NomComplet" class="form-control" />
+                            <span asp-validation-for="NomComplet" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label asp-for="Demande" class="control-label"></label>
+                            <input asp-for="Demande" class="form-control" />
+                            <span asp-validation-for="Demande" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Telephone" class="control-label"></label>
+                            <input asp-for="Telephone" class="form-control" />
+                            <span asp-validation-for="Telephone" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label asp-for="DateDoloeance" class="control-label"></label>
+                            <input asp-for="DateDoloeance" class="form-control" type="date" />
+                            <span asp-validation-for="DateDoloeance" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label asp-for="Service" class="control-label"></label>
+                            <div>
+                                <select asp-for="Service" class=" col-12">
+                                    <option selected>--- Selectionner le service affecter---</option>
+                                    <option value="Fiscalite">Fiscalite</option>
+                                    <option value="Resources Humaines">Resources Humaines</option>
+                                    <option value="Affichage">Affichage</option>
+                                    <option value="Informatique">Informatique</option>
+                                    <option value="Communication">Communication</option>
+                                    <option value="Administration">Administration</option>
+                                    <option value="Comptabilite">Comptabilite</option>
+                                    <option value="Genie">Genie</option>
+                                    <option value="Voirie">Voirie</option>
+                                    <option value="GIM">GIM</option>
+                                    <option value="Pompiers">Pompiers</option>
+                                    <option value="Garage">Garage</option>
+                                    <option value="Intendance">Intendance</option>
+                                    <option value="Podium">Podium</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="Service" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="User" class="control-label"></label>
+                            <input asp-for="User" class="form-control" readonly />
+                            <span asp-validation-for="User" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Suivi" class="control-label"></label>
+                            <input asp-for="Suivi" class="form-control" />
+                            <span asp-validation-for="Suivi" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label asp-for="Remarque" class="control-label"></label>
+                            <textarea asp-for="Remarque" class="form-control"  ></textarea>
+                            <span asp-validation-for="Remarque" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

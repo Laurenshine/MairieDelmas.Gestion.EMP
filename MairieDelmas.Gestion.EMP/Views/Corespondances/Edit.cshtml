@@ -1,0 +1,129 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Corespondance.Corespondance
+
+@{
+    ViewData["Title"] = "Edit";
+    //Layout = "~/Areas/Identity/Pages/_ViewStart.cshtml";
+}
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" /> <h2 class="d-inline">Corespondance </h2>
+</div>
+    
+<div class="container pb-2">
+    <fieldset class="table-bordered border-primary p-2">
+        <legend class="w-auto text-primary">Modifier </legend>
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CorespondanceId" />
+            <input type="hidden" asp-for="CodeCorespondance" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NomComplet" class="control-label"></label>
+                        <input asp-for="NomComplet" class="form-control" placeholder="Modifier le Nom... " />
+                        <span asp-validation-for="NomComplet" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Institution" class="control-label"></label>
+                        <input asp-for="Institution" class="form-control" placeholder="Modifier le Nom de l'Institution..." />
+                        <span asp-validation-for="Institution" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Objet" class="control-label"></label>
+                        <div>
+                            <select asp-for="Objet" class=" col-12">
+                                <option selected>--- Selectionner l'Objet---</option>
+                                <option value="Lettre Invitation">Lettre d'Invitation</option>
+                                <option value="Lettre Demande">Lettre de Demande  </option>
+                                <option value="Lettre Autorisation">Lettre Autorisation</option>
+                                <option value="Lettre Doleance">Lettre de Doleance</option>
+                                <option value="Etat de Compte">Demande d'Etat de Compte</option>
+                                <option value="Proformat">Proformat</option>
+                                <option value="Facture">Facture</option>
+
+                            </select>
+                        </div>
+                        <span asp-validation-for="Objet" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label asp-for="Telephone" class="control-label"></label>
+                        <input asp-for="Telephone" class="form-control" placeholder="Modifier le Telephone..." />
+                        <span asp-validation-for="Telephone" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Modifier l'Email..." />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Daterecu" class="control-label"></label>
+                        <input asp-for="Daterecu" type="date" class="form-control" />
+                        <span asp-validation-for="Daterecu" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Destination" class="control-label"></label>
+                        <input asp-for="Destination" class="form-control" placeholder="Modifier la destination... "/>
+                        <span asp-validation-for="Destination" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Suivi" class="control-label"></label>
+                        <input asp-for="Suivi" class="form-control" />
+                        <span asp-validation-for="Suivi" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Remarque" class="control-label"></label>
+                        <textarea asp-for="Remarque" class="form-control"  ></textarea>
+                        <span asp-validation-for="Remarque" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="CodeCorespondance" type="hidden" />
+
+
+            <input asp-for="User" type="hidden" />
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-primary">Retour</a>
+            </div>
+        </form>
+
+
+    </fieldset>
+</div>
+ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

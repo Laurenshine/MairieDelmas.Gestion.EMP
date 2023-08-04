@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Conge.Conge>
+
+@{
+    ViewData["Title"] = "ListeDesEmployesEnConge";
+}
+
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Employes Mairie de Delmas</h2>
+</div>
+ 
+<br />
+<div class="row ">
+    <div class="col-md-8">
+        <form asp-action="ListeDesEmployesEnConge" method="get">
+            <div class="input-group">
+                <input type="date" name="date" class="form-control col-4" placeholder="Nom , Prenom, Nif/Cin..." />
+                <button type="submit" class="btn btn-outline-light border-0" value="Filter">
+                    <img src="~/search.svg" alt="Alternate Text" />
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<br />
+
+<table class="table table-striped table-sm table-hover">
+    <thead class="table-primary">
+        <tr style="font-size:small" class="text-center">
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emploi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NifCin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeConge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DebutConge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinConge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReprendreService)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observation)
+            </th>
+
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center" style="font-size:small">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emploi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NifCin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeConge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DebutConge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinConge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReprendreService)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observation)
+                </td>
+
+                <td>
+                        <a asp-action="FueilleDeConge" asp-route-id="@item.CongeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a> |
+                        <a asp-action="Details" asp-route-id="@item.CongeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a> |
+                        <a asp-action="Delete" asp-route-id="@item.CongeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>

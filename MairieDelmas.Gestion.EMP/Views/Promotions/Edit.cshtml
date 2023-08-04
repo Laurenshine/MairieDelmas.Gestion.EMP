@@ -1,0 +1,82 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Promotion.Promotion
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" /> <h2 class="d-inline"> Promotion </h2>
+</div>
+
+ 
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PromotionId" />
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prenom" class="control-label"></label>
+                <input asp-for="Prenom" class="form-control" />
+                <span asp-validation-for="Prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NifCIn" class="control-label"></label>
+                <input asp-for="NifCIn" class="form-control" />
+                <span asp-validation-for="NifCIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AncienPoste" class="control-label"></label>
+                <input asp-for="AncienPoste" class="form-control" />
+                <span asp-validation-for="AncienPoste" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AncienService" class="control-label"></label>
+                <input asp-for="AncienService" class="form-control" />
+                <span asp-validation-for="AncienService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NouveauPoste" class="control-label"></label>
+                <input asp-for="NouveauPoste" class="form-control" />
+                <span asp-validation-for="NouveauPoste" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NouveauService" class="control-label"></label>
+                <input asp-for="NouveauService" class="form-control" />
+                <span asp-validation-for="NouveauService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatePromotion" class="control-label"></label>
+                <input asp-for="DatePromotion" class="form-control" />
+                <span asp-validation-for="DatePromotion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RemarquePromotion" class="control-label"></label>
+                <input asp-for="RemarquePromotion" class="form-control" />
+                <span asp-validation-for="RemarquePromotion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User" class="control-label"></label>
+                <input asp-for="User" class="form-control" />
+                <span asp-validation-for="User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeId" class="control-label"></label>
+                <input asp-for="EmployeId" class="form-control" />
+                <span asp-validation-for="EmployeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+     d
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

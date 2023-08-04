@@ -15,7 +15,7 @@ namespace MairieDelmas.Gestion.EMP.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.27")
+                .HasAnnotation("ProductVersion", "3.1.30")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -29,24 +29,131 @@ namespace MairieDelmas.Gestion.EMP.Data.Migrations
                     b.Property<DateTime>("DebutConge")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Emploi")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("EmployeId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FinConge")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("NifCin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nom")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Observation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenom")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ReprendreService")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Service")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TypeConge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CongeId");
 
                     b.ToTable("Conge");
+                });
+
+            modelBuilder.Entity("MairieDelmas.Gestion.EMP.Models.Corespondance.Corespondance", b =>
+                {
+                    b.Property<int>("CorespondanceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CodeCorespondance")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Daterecu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Destination")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Institution")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomComplet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Objet")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Remarque")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Suivi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telephone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CorespondanceId");
+
+                    b.ToTable("Corespondance");
+                });
+
+            modelBuilder.Entity("MairieDelmas.Gestion.EMP.Models.Doleance.Doleance", b =>
+                {
+                    b.Property<int>("DoleanceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CodeDoleance")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateDoloeance")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Demande")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomComplet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Remarque")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Service")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Suivi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telephone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DoleanceId");
+
+                    b.ToTable("Doleance");
                 });
 
             modelBuilder.Entity("MairieDelmas.Gestion.EMP.Models.Employe.Employe", b =>
@@ -57,6 +164,7 @@ namespace MairieDelmas.Gestion.EMP.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Adresse")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Allergies")
@@ -85,6 +193,9 @@ namespace MairieDelmas.Gestion.EMP.Data.Migrations
 
                     b.Property<DateTime>("DateNaissance")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("DatechangementEtat")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DatederniereVisite")
                         .HasColumnType("datetime2");
@@ -117,9 +228,11 @@ namespace MairieDelmas.Gestion.EMP.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nationalite")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nom")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("NombreEnfants")
@@ -147,6 +260,10 @@ namespace MairieDelmas.Gestion.EMP.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prenom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Remarque")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Remarques")
@@ -164,9 +281,93 @@ namespace MairieDelmas.Gestion.EMP.Data.Migrations
                     b.Property<string>("TypeContrat")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("EmployeId");
 
                     b.ToTable("Employe");
+                });
+
+            modelBuilder.Entity("MairieDelmas.Gestion.EMP.Models.Poste.Poste", b =>
+                {
+                    b.Property<int>("PosteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NomPoste")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PosteId");
+
+                    b.ToTable("Poste");
+                });
+
+            modelBuilder.Entity("MairieDelmas.Gestion.EMP.Models.Promotion.Promotion", b =>
+                {
+                    b.Property<int>("PromotionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AncienPoste")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AncienService")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DatePromotion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NifCIn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NouveauPoste")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NouveauService")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RemarquePromotion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PromotionId");
+
+                    b.ToTable("Promotion");
+                });
+
+            modelBuilder.Entity("MairieDelmas.Gestion.EMP.Models.Service.Service", b =>
+                {
+                    b.Property<int>("ServiceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NomService")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ServiceId");
+
+                    b.ToTable("Service");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

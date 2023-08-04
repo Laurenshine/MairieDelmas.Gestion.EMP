@@ -1,0 +1,124 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Conge.Conge
+
+@{
+    ViewData["Title"] = "FueilleDeConge";
+}
+<div class="container p-2">
+    <br />  <br />  
+            <form asp-action="FueilleDeConge">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CongeId" />
+
+                <h1 class="text-center display-2 text-uppercase font-weight-light">
+                    @Html.DisplayFor(model => model.TypeConge)
+                </h1>
+                @{
+                    // string moisEnLettre="Bonsoir";
+                    DateTime dateEntre = Model.DebutConge;
+                    //int mois = dateEntre.Month;
+                    //int anne = dateEntre.Year;
+                    int jour = dateEntre.Day;
+
+                    DateTime now = Model.FinConge;
+                    int jourconge = now.Day - dateEntre.Day;
+                    if (dateEntre > now.AddDays(-jourconge))
+                        jourconge--;
+                    string moisLettre(int mois)
+                    {
+                        string moisEnLettre = "Bonsoir";
+
+
+                        if (mois == 1)
+                        {
+                            moisEnLettre = "Janvier";
+                        }
+                        else if (mois == 2)
+                        {
+                            moisEnLettre = "Fevrier";
+                        }
+                        else if (mois == 3)
+                        {
+                            moisEnLettre = "Mars";
+                        }
+                        else if (mois == 4)
+                        {
+                            moisEnLettre = "Avril";
+                        }
+                        else if (mois == 5)
+                        {
+                            moisEnLettre = "Mai";
+                        }
+                        else if (mois == 6)
+                        {
+                            moisEnLettre = "Juin";
+                        }
+                        else if (mois == 7)
+                        {
+                            moisEnLettre = "Juillet";
+                        }
+                        else if (mois == 8)
+                        {
+                            moisEnLettre = "Aout";
+                        }
+                        else if (mois == 9)
+                        {
+                            moisEnLettre = "Septembre";
+                        }
+                        else if (mois == 10)
+                        {
+                            moisEnLettre = "Octobre";
+                        }
+                        else if (mois == 11)
+                        {
+                            moisEnLettre = "Novembre";
+                        }
+                        else if (mois == 12)
+                        {
+                            moisEnLettre = "Decembre";
+                        }
+
+                        return moisEnLettre;
+                    }
+
+                    int deb = Model.DebutConge.Month;
+                    string deb1=  moisLettre(deb);
+                    int rep = Model.ReprendreService.Month;
+                    string rep1 = moisLettre(rep);
+
+                     
+                }
+                 
+
+                <br />  
+                        <p class="" style=" font-size:25px">
+                            &emsp;  &emsp;    Par la Pr&eacute;sente , La Direction des Ressources Humaines accorde &agrave; l&rsquo;employ&eacute;(e),<span class="font-weight-bold">   @Html.DisplayFor(model => model.Prenom)</span>  <span class="text-uppercase font-weight-bold">     @Html.DisplayFor(model => model.Nom) </span>
+                            , @Html.DisplayFor(model => model.Emploi) , Attach&eacute;(e) &agrave; la Direction des  @Html.DisplayFor(model => model.Service) , une partie de son <span class="font-weight-bold">  @Html.DisplayFor(model => model.TypeConge) </span>
+                            soit @jourconge jour(s) ouvrables,allant du @Html.DisplayFor(model => model.DebutConge.DayOfWeek) (@Html.DisplayFor(model => model.DebutConge.Day)) @deb1
+                        </p>
+                <p style=" font-size :25px">
+                    &emsp;  &emsp;   Madame  <span class="font-weight-bold"> @Html.DisplayFor(model => model.Prenom)  </span>  <span class="font-weight-bold text-uppercase "> @Html.DisplayFor(model => model.Nom) </span> reprendra service le <span class="font-weight-bold ">   @Html.DisplayFor(model => model.ReprendreService.DayOfWeek) 
+                    @Html.DisplayFor(model => model.ReprendreService.Day) @rep1 @Html.DisplayFor(model => model.ReprendreService.Year)</span>
+                </p>
+                <p style=" font-size :25px">
+                    &emsp;  &emsp;   En foi de quoi , la pr&eacute;sente est delivr&eacute;e pour servire ce que de droit
+                </p>
+
+                <div class="float-right">
+                    <div class=" text-center">
+                        <p class="  " style=" font-size :25px"> Fait &agrave; Delmas, le @DateTime.Now.Date.ToShortDateString() </p>
+                        <p class=" mb-0 font-weight-bold  " style=" font-size :25px"> Guerlande B. DELLY </p>
+                        <p class=" font-weight-bold " style=" font-size :25px"> Directrice des Ressources Humaines </p>
+                    </div>
+                </div>
+                <div class="float-left"  style=" font-size :20px">
+                    <p class="font-weight-bold"> RH/GH/@Model.CongeId/21-22</p>
+                </div>
+
+            </form>
+
+</div>
+ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

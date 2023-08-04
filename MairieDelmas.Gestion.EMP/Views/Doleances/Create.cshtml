@@ -1,0 +1,128 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Doleance.Doleance
+
+@{
+    ViewData["Title"] = "Create";
+  //  Layout = "~/Areas/Identity/Pages/_ViewStart.cshtml";
+}
+ 
+    <div class="  bg-primary text-uppercase text-white shadow">
+        <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" /> <h2 class="d-inline">Nouveau Doleance</h2>
+    </div>
+ 
+ 
+<div class="container pb-2">
+    <fieldset class="table-bordered border-primary p-2">
+        <legend class="w-auto text-primary"> Enregistrer </legend>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*@if (TempData["Success"] != null)
+            {
+                <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            }*@
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NomComplet" class="control-label"></label>
+                        <input asp-for="NomComplet" class="form-control" placeholder="Entrer le Nom Complet..." />
+                        <span class="text-muted"> Pas obligatiore </span>
+                        <span asp-validation-for="NomComplet" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Demande" class="control-label">Doleance</label>
+                        <input asp-for="Demande" class="form-control" placeholder="Entrer la doleance..." />
+                        <span asp-validation-for="Demande" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+
+
+                    <div class="form-group">
+                        <label asp-for="Telephone" class="control-label"></label>
+                        <input asp-for="Telephone" class="form-control" placeholder="Entrer le Numero de Telephone..." />
+                        <span asp-validation-for="Telephone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Entrer l'Email... "/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <input asp-for="DateDoloeance" value="@DateTime.Today.Date" type="hidden" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+
+                        <label asp-for="Service" class="control-label"></label>
+                        <div>
+                            <select asp-for="Service" class=" col-12">
+                                <option selected>--- Selectionner le service affecter---</option>
+                                <option value="Fiscalite">Fiscalite</option>
+                                <option value="Resources Humaines">Resources Humaines</option>
+                                <option value="Affichage">Affichage</option>
+                                <option value="Informatique">Informatique</option>
+                                <option value="Communication">Communication</option>
+                                <option value="Administration">Administration</option>
+                                <option value="Comptabilite">Comptabilite</option>
+                                <option value="Genie">Genie</option>
+                                <option value="Voirie">Voirie</option>
+                                <option value="GIM">GIM</option>
+                                <option value="Pompiers">Pompiers</option>
+                                <option value="Garage">Garage</option>
+                                <option value="Intendance">Intendance</option>
+                                <option value="Podium">Podium</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="Service" class="text-danger"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+
+                    <input asp-for="User" type="hidden" value="@User.Identity.Name" />
+
+                    <div class="form-group">
+                        <label asp-for="Suivi" class="control-label"></label>
+                        <input asp-for="Suivi" class="form-control" />
+                        <span asp-validation-for="Suivi" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label asp-for="Remarque" class="control-label"></label>
+                        <textarea asp-for="Remarque" class="form-control" placeholder="Entrer une remarque a propos de cette doleance..." ></textarea>
+                        <span asp-validation-for="Remarque" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-primary">Retour</a>
+            </div>
+        </form>
+
+    </fieldset>
+
+
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

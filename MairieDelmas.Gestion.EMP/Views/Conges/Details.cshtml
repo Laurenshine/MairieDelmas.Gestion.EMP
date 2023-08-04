@@ -4,51 +4,84 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class=" bg-primary text-uppercase text-white">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline"> Information Conge</h2>
+</div>
 
-<div>
-    <h4>Conge</h4>
+<div class="container">
+    <h4>Details</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeId)
+        @*<dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.EmployeId)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.EmployeId)
+            </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nom)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EmployeId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nom)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emploi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emploi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NifCin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NifCin)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TypeConge)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TypeConge)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DebutConge)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DebutConge)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FinConge)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FinConge)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ReprendreService)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ReprendreService)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Observation)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Observation)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.CongeId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <div>
+        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.CongeId">Edit</a> |
+        <a asp-action="Index" class="btn btn-outline-primary">Retour</a>
+    </div>
 </div>

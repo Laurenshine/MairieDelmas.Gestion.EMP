@@ -1,0 +1,140 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Employe.Employe
+
+@{
+    ViewData["Title"] = "EmployeConge";
+    var con = ViewData["Conge"] as MairieDelmas.Gestion.EMP.Models.Conge.Conge;
+
+}
+
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline"> Conge </h2>
+</div>
+
+<div class="container">
+   
+
+    <div>
+        <h4>Conge de l'Employe</h4>
+        <hr />
+        <dl class="row">
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TypeContrat)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TypeContrat)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Prenom)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Prenom)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NIFCIN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NIFCIN)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Emploi)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Emploi)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Service)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Service)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cadre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cadre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Telephone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Telephone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Portable)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Portable)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                Type Conge
+            </dt>
+            <dd class="col-sm-10">
+                @con.TypeConge
+            </dd>
+            <dt class="col-sm-2">
+                Debut Conge
+            </dt>
+            <dd class="col-sm-10">
+                @con.DebutConge.ToShortDateString()
+            </dd>
+            <dt class="col-sm-2">
+                Fin Conge
+            </dt>
+            <dd class="col-sm-10">
+                @con.FinConge.ToShortDateString()
+            </dd>
+            <dt class="col-sm-2">Nombre de Jour</dt>
+            <dd class="col-sm-10">
+                @{
+                    DateTime dateEntre = @con.DebutConge;
+                    //int mois = dateEntre.Month;
+                    //int anne = dateEntre.Year;
+                    int jour = dateEntre.Day;
+
+                    DateTime now = con.FinConge;
+                    int jourconge = now.Day - dateEntre.Day;
+                    if (dateEntre > now.AddDays(-jourconge))
+                        jourconge--;
+
+                    DateTime dateMois = @con.DebutConge;
+                    //int mois = dateEntre.Month;
+                    //int anne = dateEntre.Year;
+                    int mois = dateMois.Month;
+
+                    DateTime fin = con.FinConge;
+                    int Moisconge = fin.Month - dateMois.Month;
+                    if (dateMois > now.AddMonths(-Moisconge))
+                        Moisconge--;
+
+
+                }
+                @Moisconge mois @jourconge Jour(s)
+            </dd>
+            <dt class="col-sm-2">
+                Date de retour
+            </dt>
+            <dd class="col-sm-10">
+                @con.ReprendreService.ToShortDateString()
+            </dd>
+           
+        </dl>
+    </div>
+    <div>
+        <a asp-controller="Conges" class="btn btn-primary" asp-action="Index">Retour</a>
+        <a asp-controller="Home" class="btn btn-outline-primary" asp-action="Index">Accueil</a>
+
+    </div>
+</div>

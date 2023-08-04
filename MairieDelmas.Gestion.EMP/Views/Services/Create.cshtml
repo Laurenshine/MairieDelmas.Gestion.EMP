@@ -1,0 +1,35 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Service.Service
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Service</ </h2>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomService" class="control-label"> Nom du Service</label>
+                    <input asp-for="NomService" class="form-control" placeholder="Entrer le Nom du Service..." />
+                    <span asp-validation-for="NomService" class="text-danger"></span>
+                </div>
+
+                <input asp-for="User" value="@User.Identity.Name" type="hidden" class="form-control" />
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

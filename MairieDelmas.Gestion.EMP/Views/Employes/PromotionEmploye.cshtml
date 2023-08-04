@@ -1,0 +1,153 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Promotion.Promotion
+
+@{
+    ViewData["Title"] = "PromtionEmploye";
+    var Emp = ViewData["Promotion"] as MairieDelmas.Gestion.EMP.Models.Employe.Employe;
+}
+
+<div class="  bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Promotion Employe</h2>
+</div>
+<div class="container pb-2">
+    <fieldset class="table-bordered border-primary p-2">
+        <legend class="w-auto text-primary">Promotion </legend>
+
+        <form asp-action="PromotionEmploye">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="EmployeId" value="@ViewBag.EmployeId" type="hidden" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Code Emp.</label>
+                        <input value="@Emp.CodeEmp" readonly class="form-control" />
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"> Type de Contrat</label>
+                        <input value="@Emp.TypeContrat" readonly class="form-control" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Nom" class="control-label"></label>
+                        <input asp-for="Nom" value="@Emp.Nom" readonly class="form-control" />
+                        <span asp-validation-for="Nom" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Prenom" class="control-label"></label>
+                        <input asp-for="Prenom" value="@Emp.Prenom" readonly class="form-control" />
+                        <span asp-validation-for="Prenom" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NifCIn" class="control-label"></label>
+                        <input asp-for="NifCIn" value="@Emp.NIFCIN" readonly class="form-control" />
+                        <span asp-validation-for="NifCIn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"> Date d'embauche </label>
+                        <input value="@Emp.DateEntreaLaMairie.Date.ToShortDateString()" readonly class="form-control" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AncienPoste" class="control-label"></label>
+                        <input asp-for="AncienPoste" value="@Emp.Emploi" readonly class="form-control" />
+                        <span asp-validation-for="AncienPoste" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AncienService" class="control-label"></label>
+                        <input asp-for="AncienService" value="@Emp.Service" readonly class="form-control" />
+                        <span asp-validation-for="AncienService" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="NouveauPoste" class="control-label"></label>
+
+                            <select asp-for="NouveauPoste" class="form-select col-md-12">
+                                <option selected> ---Selectionner le poste--- </option>
+
+                                @foreach (var item in ViewBag.Poste)
+                                {
+                                    <option value="@item.NomPoste">@item.NomPoste</option>
+                                }
+                            </select>
+                            <span asp-validation-for="NouveauPoste" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="NouveauService" class="control-label"></label>
+                            <select asp-for="NouveauService" class="form-group col-md-12">
+                                <option selected >--- Selectionner le service affecter---</option>
+                                @foreach (var item in ViewBag.Service)
+                                {
+                                    <option value="@item.NomService">@item.NomService</option>
+                                }
+
+
+                            </select>
+                            <span asp-validation-for="NouveauService" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="DatePromotion" class="control-label"></label>
+                            <input asp-for="DatePromotion" class="form-control" />
+                            <span asp-validation-for="DatePromotion" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="RemarquePromotion" class="control-label"></label>
+                            <input asp-for="RemarquePromotion" class="form-control" />
+                            <span asp-validation-for="RemarquePromotion" class="text-danger"></span>
+                        </div>
+                    </div>
+                     
+                </div>
+            </div>
+            <input asp-for="User" value="@User.Identity.Name" type="hidden" />
+
+            <div class="form-group">
+                <input asp-controller="Promotions" asp-action="Create" type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="ListePromotion" class="btn btn-outline-primary">Back to List</a>
+            </div>
+        </form>
+    </fieldset>
+    </div>
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

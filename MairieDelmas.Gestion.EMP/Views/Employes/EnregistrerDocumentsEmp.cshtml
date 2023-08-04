@@ -1,0 +1,163 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Employe.Employe
+
+@{
+    ViewData["Title"] = "EnregistrerDocumentsEmp";
+}
+
+<div class="  bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Employes Mairie de Delmas</h2>
+</div>
+ 
+<div class="container pb-2">
+    <fieldset class="table-bordered border-primary p-2">
+        <legend class="w-auto text-primary"> Enregistre</legend>
+
+        <form asp-action="EnregistrerDocumentsEmp">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeId" />
+
+
+            <input asp-for="TypeContrat" type="hidden" />
+            <input asp-for="Nom" type="hidden" />
+            <input asp-for="Prenom" type="hidden" />
+            <input asp-for="DateNaissance" type="hidden" />
+            <input asp-for="LieudeNaissance" type="hidden" />
+            <input asp-for="Nationalite" type="hidden" />
+            <input asp-for="PaysdeNaissance" type="hidden" />
+            <input asp-for="Adresse" type="hidden" />
+            <input asp-for="SituationFamiliale" type="hidden" />
+            <input asp-for="NombrePersaCharge" type="hidden" />
+            <input asp-for="NombreEnfants" type="hidden" />
+            <input asp-for="NIFCIN" type="hidden" />
+
+            <input asp-for="Emploi" type="hidden" />
+            <input asp-for="Service" type="hidden" />
+            <input asp-for="Cadre" type="hidden" />
+            <input asp-for="Telephone" type="hidden" />
+            <input asp-for="Portable" type="hidden" />
+            <input asp-for="Email" type="hidden" />
+            <input asp-for="PersonneAPrevenir" type="hidden" />
+            <input asp-for="PortablePersonneAPrevenir" type="hidden" />
+            <input asp-for="Liens" type="hidden" />
+
+            <input asp-for="Gs" type="hidden" />
+            <input asp-for="Allergies" type="hidden" />
+            <input asp-for="Maladies" type="hidden" />
+            <input asp-for="Remarques" type="hidden" />
+            <input asp-for="DatederniereVisite" type="hidden" />
+            <input asp-for="DateEntreaLaMairie" type="hidden" />
+            <input asp-for="CompteBancaireBNC" type="hidden" />
+            <input asp-for="AutreFormation" type="hidden" />
+            <input asp-for="EtudeEncour" type="hidden">
+            <input asp-for="Etat" type="hidden">
+            <input asp-for="User" type="hidden">
+            <input asp-for="DatechangementEtat" type="hidden" />
+            <input asp-for="Remarque" type="hidden" />
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="CodeEmp" class="control-label"></label>
+                        <input asp-for="CodeEmp" class="form-control" readonly />
+                        <span asp-validation-for="CodeEmp" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="TypeContrat" class="control-label"></label>
+                        <input asp-for="TypeContrat" class="form-control" readonly />
+                        <span asp-validation-for="TypeContrat" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Nom" class="control-label"></label>
+                        <input asp-for="Nom" class="form-control" readonly />
+                        <span asp-validation-for="Nom" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Prenom" class="control-label"></label>
+                        <input asp-for="Prenom" class="form-control" readonly />
+                        <span asp-validation-for="Prenom" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Emploi" class="control-label"></label>
+                        <input asp-for="Emploi" class="form-control" readonly />
+                        <span asp-validation-for="Emploi" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Service" class="control-label"></label>
+                        <input asp-for="Service" class="form-control" readonly />
+                        <span asp-validation-for="Service" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+
+                        <label asp-for="CarteIdentification" class="control-label"></label>
+                        <input asp-for="CarteIdentification" type="file" class="form-control" aria-label="file example"/>
+                               
+                        <div class="invalid-feedback">Example invalid form file feedback</div>
+                    </div>
+                    <img src="" id="image" alt="Alternate Text" width="40" height="50" style="border:1px;" />
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+
+
+                        <label asp-for="CV" class="control-label"></label>
+                        <input asp-for="CV" type="file" class="form-control" aria-label="file example" required>
+                        <div class="invalid-feedback">Example invalid form file feedback</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+
+
+                        <label asp-for="Photo" class="control-label"></label>
+                        <input asp-for="Photo" type="file" class="form-control" aria-label="file example" required>
+                        <div class="invalid-feedback">Example invalid form file feedback</div>
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="PermisConduire" class="control-label"></label>
+                        <input asp-for="PermisConduire" type="file" class="form-control" aria-label="file example" required>
+                        <div class="invalid-feedback">Example invalid form file feedback</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="RechercheDocument" class="btn btn-outline-primary">Retour</a>
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

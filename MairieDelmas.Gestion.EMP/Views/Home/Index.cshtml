@@ -1,115 +1,91 @@
 ﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Employe.Employe>
 
 @{
-    ViewData["Title"] = "ListerNom";
+    ViewData["Title"] = "Accueil";
+     
 }
 
-<div class="card-header bg-dark text-uppercase text-white text-center">
-    <img src="~/MD logo png copy.png" width="100" alt="Alternate Text" />  <h1>    Bienvenue </h1>
-</div>
-<br />
-<div class="row p-2">
-    <div class="col-md-2 bg-white table-bordered">
-        <br />
-        <div>
-            <a asp-controller="Employes" class="text-dark text-center" asp-action="Edit"><img src="~/MD logo png copy.png" width="30" alt="Alternate Text" />Mairie de Delmas</a>
-        </div>
-        <hr />
-        <br />
-
-        <div>
-
-            <a asp-controller="Home" class="text-dark text-center" asp-action="Index"><img src="~/house-fill.svg" class="text-light" width=" 20" alt="Alternate Text" /> Accueil  </a>
-        </div>
-        <br />
-        <div>
-
-            <a asp-controller="Employes" class="text-dark text-center" asp-action="Recherche"><img src="~/person-rolodex.svg" width=" 20" class="text-light" alt="Alternate Text" /> Employes  </a>
-        </div>
-
-        <br />
-        <div>
-            <a asp-controller="Employes" class="text-dark text-center" asp-action="RechercheInfoPersonel"><img src="~/airplane-fill.svg" width=" 20" class="text-light" alt="Alternate Text" />  Conge </a>
-        </div>
-        <br />
-        <div>
-            <a asp-controller="Employes" class="text-dark text-center" asp-action="Delete"><img src="~/envelope-paper-fill.svg" width=" 20" class="text-light" alt="Alternate Text" />  Corespondances</a>
-        </div>
-        <br />
-        <div>
-            <a asp-controller="Employes" class="text-dark text-center" asp-action="Edit"><img src="~/signpost-fill.svg" width=" 20" class="text-light" alt="Alternate Text" /> Doleances  </a>
-        </div>
-        <br />
-
+@*<div class="card-header bg-dark text-uppercase text-white d-flex d-inline">
+    <div class="">
+        <img src="~/MD logo png copy.png" width="100" alt="Alternate Text" />  <h1 class="d-inline"> Bienvenue </h1>
     </div>
-    <div class="col-md-9 bg-white">
-        <table class="table table-striped ">
-            <thead clas="table-dark ">
-                <tr style="font-size:small" class="text-center">
 
+   
+</div>*@
  
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nom)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Prenom)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TypeContrat)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Emploi)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Service)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DateEntreaLaMairie)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Telephone)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                     
+    <div class="d-flex justify-content-end bg-primary  " style="height:60px">
+        <div class="pr-5 pt-2">
+            <a class="nav-link text-white " title="Manage">Bienvenue @User.Identity.Name!</a>
+        </div>
+       
+       
+    </div> 
+        <!--<div class="pr-3 pt-3">
+            <a href="#"><img src="~/person-plus.svg" width="30" alt="Alternate Text" /></a>-->
+        @*<img src="~/search.svg" alt="Alternate Text" />*@
+        <!--<a href="#"><img src="~/trash.svg" width="30" alt="Alternate Text" /> </a>
+            <a href="#"><img src="~/eye.svg" width="30" alt="Alternate Text" /></a>
+        </div>-->
+        @*<div calss="pt-5">
+                <p> Utilisateur| @User.Identity.Name</p>
+            </div>
+            <div class="pt-1 ">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
+            </div>*@
+    <div class="row pt-1 pl-3 pb-1">
 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model) {
-                <tr class="text-center" style="font-size:small">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Prenom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TypeContrat)
-                    </td>
+        <div class=" col-12 mb-2 col-md-2   bg-light table-bordered border-primary  " style="height:500px">
+            <br />
+            <div>
+                <form action="/" method="post">
+                    <div class="input-group">
+                        <input class="form-control " type="text" name="Recherche" placeholder="Code Emp..." />
+                        <button type="submit" class="btn btn btn-outline-primary  " value="Filter">
+                            <img src="~/search.svg" alt="Alternate Text" />
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <hr />
+            <br />
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Emploi)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Service)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateEntreaLaMairie.Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Telephone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    
+            <div>
+                <a asp-controller="Home" class="text-dark text-left btn btn-outline-primary border-0 col-12" asp-action="Index"><img src="~/house-fill.svg" class="text-light" width=" 20" alt="Alternate Text" /> Accueil  </a>
+            </div>
+            <br />
+            <div>
 
-                </tr>
-                }
-            </tbody>
-        </table>
+                <a asp-controller="Employes" class="text-dark text-left   btn btn-outline-primary border-0 col-12" asp-action="Recherche"><img src="~/person-rolodex.svg" width=" 20" class="text-light" alt="Alternate Text" /> Employes  </a>
+            </div>
 
+            <br />
+            <div>
+                <a asp-controller="Employes" class="text-dark text-left   btn btn-outline-primary border-0 col-12" asp-action="ListeEmployeEligibleConge"><img src="~/airplane-fill.svg" width=" 20" class="text-light" alt="Alternate Text" />  Conge </a>
+            </div>
+            <br />
+            <div>
+                <a asp-controller="Corespondances" class="text-dark   text-left btn btn-outline-primary border-0 col-12" asp-action="Create"><img src="~/envelope-paper-fill.svg" width=" 20" class="text-light" alt="Alternate Text" />  Corespondances</a>
+            </div>
+            <br />
+            <div>
+                <a asp-controller="Doleances" class="text-dark  text-left btn btn-outline-primary border-0 col-12" asp-action="Create"><img src="~/signpost-fill.svg" width=" 20" class="text-light" alt="Alternate Text" /> Doleances  </a>
+            </div>
+            <br />
+            <div>
+                <a  asp-area="Identity" asp-page="/Account/Manage/Index" class="text-dark  text-left btn btn-outline-primary border-0 col-12"  ><img src="~/gear-fill.svg" width=" 20" class="text-light" alt="Alternate Text" /> Parametres  </a>
+            </div>
+            <br />
+
+        </div>
+        <div class="col-2">
+            
+        </div>
+
+        <div class="col-12 col-md-6 pl-5 pt-4 bg-white "  >
+            <img src="~/MD logo png copy.png" width=" 500" alt="Alternate Text" />
+            
+        </div>
     </div>
-</div>
+ 

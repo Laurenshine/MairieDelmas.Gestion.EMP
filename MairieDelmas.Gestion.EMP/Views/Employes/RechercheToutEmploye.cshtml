@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MairieDelmas.Gestion.EMP.Models.Employe.Employe>
+
+@{
+    ViewData["Title"] = "RechercheToutEmploye";
+}
+
+<div class=" bg-primary text-uppercase text-white shadow">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Employes Mairie de Delmas</ </h2>
+</div>
+<div class="row  mt-2 ">
+    <div class="col-md-8 ml-3">
+        <form asp-action="RechercheToutEmploye" method="get">
+            <div class="input-group">
+                <input type="text" name="Recherche" class="form-control col-4 pl-4 " placeholder="Recherche..." />
+                <button type="submit" class="btn btn btn-outline-light border-0 " value="Filter"> <img src="~/search.svg" alt="Alternate Text" /></button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<fieldset class="border  border-primary pt-2 overflow-auto  " style="height:515px">
+    <legend class="w-auto text-primary"> <a asp-action="Create" class="btn btn-outline-light border-0"><img style="width:40px" src="~/person-plus.svg" alt="Alternate Text" /> </a></legend>
+
+    <div>
+        <table class="table  table-striped    table-hover">
+            <thead class=" table-primary text-center">
+                <tr  >
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypeContrat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prenom)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.NIFCIN)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Emploi)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Service)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Etat)
+                    </th>
+
+                    
+
+                    <th> Options </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center">
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypeContrat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prenom)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NIFCIN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Emploi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Service)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Etat)
+                        </td>
+
+                        
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.EmployeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a> |
+                            <a asp-action="Details" asp-route-id="@item.EmployeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a> 
+                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+</fieldset>

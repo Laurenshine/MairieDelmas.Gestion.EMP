@@ -1,0 +1,110 @@
+﻿@model MairieDelmas.Gestion.EMP.Models.Employe.Employe
+
+@{
+    ViewData["Title"] = "CertificatDeTravail";
+}
+
+  
+<div class="container p-2">   
+        <form asp-action="CertificatDeTravail">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeId" />
+           
+
+            <h1 class="text-center display-2 text-uppercase font-weight-light">
+                certificat
+            </h1>
+            @{
+                string moisLettre(int mois)
+                {
+                    string moisEnLettre = "Bonsoir";
+
+
+                    if (mois == 1)
+                    {
+                        moisEnLettre = "Janvier";
+                    }
+                    else if (mois == 2)
+                    {
+                        moisEnLettre = "Fevrier";
+                    }
+                    else if (mois == 3)
+                    {
+                        moisEnLettre = "Mars";
+                    }
+                    else if (mois == 4)
+                    {
+                        moisEnLettre = "Avril";
+                    }
+                    else if (mois == 5)
+                    {
+                        moisEnLettre = "Mai";
+                    }
+                    else if (mois == 6)
+                    {
+                        moisEnLettre = "Juin";
+                    }
+                    else if (mois == 7)
+                    {
+                        moisEnLettre = "Juillet";
+                    }
+                    else if (mois == 8)
+                    {
+                        moisEnLettre = "Aout";
+                    }
+                    else if (mois == 9)
+                    {
+                        moisEnLettre = "Septembre";
+                    }
+                    else if (mois == 10)
+                    {
+                        moisEnLettre = "Octobre";
+                    }
+                    else if (mois == 11)
+                    {
+                        moisEnLettre = "Novembre";
+                    }
+                    else if (mois == 12)
+                    {
+                        moisEnLettre = "Decembre";
+                    }
+
+                    return moisEnLettre;
+                }
+                int rep = Model.DateEntreaLaMairie.Month;
+                string rep1 = moisLettre(rep);
+                int da = DateTime.Today.Month;
+                string da1 = moisLettre(da);
+
+            }
+
+
+            <br />
+            <p class="" style=" font-size:25px">
+                &emsp;  &emsp;  Le Conseil Municipal certifie et atteste que <span class="font-weight-bold">  @Model.Prenom @Model.Nom </span> identifie au No. @Model.NIFCIN travaille a la Mairie de Delmas depuis @rep1 @Model.DateEntreaLaMairie.Year
+                jusqu'a date a titre de @Model.Emploi au service @Model.Service .Son salaire mensuel est de
+
+            </p>
+            <p style=" font-size :25px">
+                &emsp;  &emsp;   En foi de quoi , la pr&eacute;sente est delivr&eacute;e pour servire ce que de droit
+            </p>
+
+
+            <div class="float-right">
+                <div class=" text-center">
+                    <p class="  " style=" font-size :25px"> Fait &agrave; Delmas, ce @DateTime.Now.Day @da1 @DateTime.Now.Year </p>
+                    <p class=" mb-0 font-weight-bold  " style=" font-size :25px"> Guerlande B. DELLY </p>
+                    <p class=" font-weight-bold " style=" font-size :25px"> Directrice des Ressources Humaines </p>
+                </div>
+            </div>
+            <div class="float-left" style=" font-size :20px">
+                <p class="font-weight-bold"> RH/GH/@Model.EmployeId/21-22</p>
+            </div>
+
+        </form>
+
+    </div>
+ 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

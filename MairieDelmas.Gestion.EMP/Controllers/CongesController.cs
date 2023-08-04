@@ -54,10 +54,11 @@ namespace MairieDelmas.Gestion.EMP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CongeId,EmployeId,TypeConge,DebutConge,FinConge,ReprendreService,Observation")] Conge conge)
+        public async Task<IActionResult> Create([Bind("CongeId,EmployeId,TypeConge,DebutConge,FinConge,ReprendreService,Observation,User,Nom,Prenom,Emploi,Service,NifCin")] Conge conge)
         {
             if (ModelState.IsValid)
             {
+
                 _context.Add(conge);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,7 +87,7 @@ namespace MairieDelmas.Gestion.EMP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CongeId,EmployeId,TypeConge,DebutConge,FinConge,ReprendreService,Observation")] Conge conge)
+        public async Task<IActionResult> Edit(int id, [Bind("CongeId,TypeConge,DebutConge,FinConge,ReprendreService,Observation,EmployeId,User,Nom,Prenom,Emploi,Service,NifCin")] Conge conge)
         {
             if (id != conge.CongeId)
             {
@@ -150,18 +151,100 @@ namespace MairieDelmas.Gestion.EMP.Controllers
             return _context.Conge.Any(e => e.CongeId == id);
         }
 
-        public async Task<IActionResult> ListerEmpConge(string recherche)
+
+
+       
+        public async Task<IActionResult> ListeDesEmployesEnConge()
         {
-            var Conge1 = new Conge();
 
-            var EmpConge = from Emp in _context.Employe
-                           join Cong in _context.Conge on Emp.EmployeId equals Cong.EmployeId into Conge
-
-                           where Emp.Nom.Contains(recherche) || Emp.Prenom.Contains(recherche)
-                           select new { Conge1.TypeConge, Conge1.DebutConge, Conge1.FinConge, Conge1.NombresJour, Conge1.ReprendreService };
             
-            return View(await EmpConge.ToListAsync());
- 
+            var Cong = from con in _context.Conge
+                       where  con.FinConge.Date<=DateTime.Today.Date orderby con.DebutConge descending
+                       select con;
+            //if (!String.IsNullOrEmpty(recherche))
+            //{
+            //    Empl = Empl.Where(e => e.Emploi.Contains(recherche) || e.Service.Contains(recherche) || e.Nom.Contains(recherche) || e.Prenom.Contains(recherche));
+            //}
+
+
+            //ViewBag.MaxStorage = Convert.ToInt32((from s in db.storage
+            //                                      where s.ID == id
+            //                                      select s.AdditionalStorageMax).FirstOrDefault());
+
+            return View(await Cong.ToListAsync());
         }
+
+        public async Task<IActionResult> FueilleDeConge(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var conge = await _context.Conge.FindAsync(id);
+            if (conge == null)
+            {
+                return NotFound();
+            }
+            return View(conge);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public async Task<IActionResult> CongePourAnneEnCour(string recherche, DateTime date)
+        //{
+
+        //    var Cong = from con in _context.Conge
+        //               where con.FinConge.Date <= DateTime.Today.Date
+        //               select con;
+        //    if (!String.IsNullOrEmpty(recherche))
+        //    {
+        //        Cong = Cong.Where((e => e.Nom.Contains(recherche) || e.Prenom.Contains(recherche) && e.DebutCongeContains(recherche) || e.Prenom.Contains(recherche));
+        //    }
+        //    return View(await Cong.ToListAsync());
+
+        //}
     }
 }
+
+//public IEnumerable<object> Paging(int page)
+//{
+//    int t = (page - 1) * 10;
+//    DB db = new DB();
+
+//    //var q = db.Books.Skip(t).Take(10).ToList();
+
+//    var q = (from i in db.Books
+//             select new
+//             {
+//                 i.id,
+//                 i.BookName,
+//                 i.Writer,
+//                 i.BookcategFK.BookCategori,
+//                 i.inventory,
+//                 i.BannerImage,
+
+//             }
+//             ).Skip(t).Take(10).ToList();
+
+//    return q;
+//}

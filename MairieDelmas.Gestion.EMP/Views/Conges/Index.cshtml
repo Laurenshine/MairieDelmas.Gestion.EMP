@@ -4,16 +4,33 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="card-header bg-dark text-uppercase text-white">
-      <h1>Listes des Conges</h1>
+<div class=" bg-primary text-uppercase text-white">
+    <img src="~/MD logo png copy.png" width="60" alt="Alternate Text" />  <h2 class="d-inline">Liste de Conge</h2>
 </div>
 <br />
 
-<table class="table table-striped ">
-    <thead class="table-dark ">
+<table class="table table-striped table-sm table-hover">
+    <thead class="table-primary ">
         <tr style="font-size:small" class="text-center">
+            @*<th>
+
+            @Html.DisplayNameFor(model => model.EmployeId)
+        </th>*@
+
             <th>
-                @Html.DisplayNameFor(model => model.EmployeId)
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emploi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NifCin)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TypeConge)
@@ -24,43 +41,89 @@
             <th>
                 @Html.DisplayNameFor(model => model.FinConge)
             </th>
-            <th>
+            <th>Nombre de Jour</th>
+            <th class="text-danger ">
                 @Html.DisplayNameFor(model => model.ReprendreService)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Observation)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
+        
         @foreach (var item in Model)
         {
-            <tr style="font-size:small" class="text-center">
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmployeId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TypeConge)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DebutConge)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FinConge)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReprendreService)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Observation)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.CongeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a>
-                    <a asp-action="Details" asp-route-id="@item.CongeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a>
-                    <a asp-action="Delete" asp-route-id="@item.CongeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
-                </td>
-            </tr>
+
+        <tr style="font-size:small" class="text-center">
+            @*<td>
+
+            <button asp-action="EmployeCon" asp-controller="Employes" asp-route-id="@item.EmployeId" >
+                @Html.DisplayFor(modelItem => item.EmployeId)
+
+            </button>
+
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emploi)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NifCin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeConge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DebutConge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinConge)
+            </td>
+            <td class="text-warning font-italic">
+                @{ 
+                    DateTime dateEntre = item.DebutConge;
+                    //int mois = dateEntre.Month;
+                    //int anne = dateEntre.Year;
+                    int jour = dateEntre.Day;
+
+                    DateTime now = item.FinConge;
+                    int jourconge = now.Day - dateEntre.Day;
+                    if (dateEntre > now.AddDays(-jourconge))
+                        jourconge--;
+                }
+                @jourconge jour(s)
+            </td>
+            <td class="text-danger font-weight-bold">
+                @Html.DisplayFor(modelItem => item.ReprendreService)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CongeId"><img class="search " src="~/zoom-in.svg" alt="Alternate Text" /></a>|
+                <a asp-action="FueilleDeConge" asp-route-id="@item.CongeId"><img class="detail" src="~/eye.svg" alt="Alternate Text" /></a>|
+                <a asp-action="Delete" asp-route-id="@item.CongeId"><img class="delete" src="~/trash.svg" alt="Alternate Text" /></a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
